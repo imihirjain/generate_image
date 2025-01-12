@@ -2,7 +2,7 @@ import logo from "./logo.svg";
 import logo_icon from "./logo_icon.svg";
 import facebook_icon from "./facebook_icon.svg";
 import instagram_icon from "./instagram_icon.svg";
-// import twitter_icon from './twitter_icon.svg'
+import github from "./social.png";
 
 import star_icon from "./star_icon.svg";
 import rating_star from "./rating_star.svg";
@@ -25,7 +25,7 @@ export const assets = {
   logo_icon,
   facebook_icon,
   instagram_icon,
-  // twitter_icon,
+  github,
   star_icon,
   rating_star,
   sample_img_1,
@@ -71,14 +71,14 @@ export const testimonialsData = [
     image: profile_img_2,
     name: "Richard Nelson",
     role: "Content Creator",
-    stars: 5,
+    stars: 4,
     text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
   },
   {
     image: profile_img_1,
     name: "Donald Jackman",
     role: " Graphic Designer",
-    stars: 5,
+    stars: 3,
     text: `I've been using bg.removal for nearly two years, primarily for Instagram, and it has been incredibly user-friendly, making my work much easier.`,
   },
 ];
