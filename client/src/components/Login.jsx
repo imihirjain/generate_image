@@ -1,10 +1,10 @@
-import { assets } from "../assets/assets";
 import { CiUser } from "react-icons/ci";
 import { MdOutlineMail } from "react-icons/md";
 import { CiLock } from "react-icons/ci";
 import { IoCloseOutline } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
+import { motion } from "motion/react";
 const Login = () => {
   const [state, setState] = useState("Login");
 
@@ -17,8 +17,14 @@ const Login = () => {
     };
   }, []);
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
-      <form className="relative bg-white p-10 rounded-xl text-slate-500">
+    <div className="fixed top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
+      <motion.form
+        initial={{ opacity: 0.2, y: 50 }}
+        transition={{ duration: 0.5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="relative bg-white p-10 rounded-xl text-slate-500"
+      >
         <h1 className="text-center text-2xl text-neutral-700 font-medium">
           {state}
         </h1>
@@ -95,7 +101,7 @@ const Login = () => {
           className="absolute top-5 right-5 cursor-pointer w-6 h-6"
           onClick={() => setShowLogin(false)}
         />
-      </form>
+      </motion.form>
     </div>
   );
 };
