@@ -5,10 +5,54 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
 import { motion } from "motion/react";
+import axios from "axios";
+import { toast } from "react-toastify";
 const Login = () => {
   const [state, setState] = useState("Login");
+  const { setShowLogin, backendUrl, setToken, setUser } =
+    useContext(AppContext);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const { setShowLogin } = useContext(AppContext);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (state === "Login") {
+        const { data } = await axios.post(backendUrl + "/api/user/login", {
+          email,
+          password,
+        });
+
+        if (data.success) {
+          setToken(data.token);
+          setUser(data.user);
+          localStorage.setItem("token", data.token);
+          setShowLogin(false);
+        } else {
+          toast.error(data.message);
+        }
+      } else {
+        const { data } = await axios.post(backendUrl + "/api/user/register", {
+          name,
+          email,
+          password,
+        });
+        console.log(data);
+
+        if (data.sucess) {
+          setToken(data.token);
+          setUser(data.user);
+          localStorage.setItem("token", data.token);
+          setShowLogin(false);
+        } else {
+          toast.error(data.message);
+        }
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -16,9 +60,11 @@ const Login = () => {
       document.body.style.overflow = "unset";
     };
   }, []);
+
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 z-10 backdrop-blur-sm bg-black/30 flex justify-center items-center">
       <motion.form
+        onSubmit={handleSubmit}
         initial={{ opacity: 0.2, y: 50 }}
         transition={{ duration: 0.5 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,6 +87,8 @@ const Login = () => {
               type="text"
               placeholder="Full Name"
               required
+              onChange={(e) => setName(e.target.value)}
+              value={name}
             />
           </div>
         )}
@@ -54,6 +102,8 @@ const Login = () => {
             type="email"
             placeholder="Email id"
             required
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
           />
         </div>
 
@@ -65,6 +115,8 @@ const Login = () => {
             type="password"
             placeholder="Password"
             required
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
           />
         </div>
 
