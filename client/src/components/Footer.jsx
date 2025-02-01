@@ -6,7 +6,10 @@ import { FaInstagram } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="flex items-center justify-between gap-4 py-3 mt-20">
-      <img src={assets.logo} width={150} alt="" />
+      {/* <img src={assets.logo} width={150} alt="" /> */}
+      <h1 className="font-medium text-xl  rounded-lg text-white bg-blue-600 px-4 py-2 sm:text-2xl sm:font-semibold">
+        PicScribe
+      </h1>
       <p className="flex-1 border-l border-gray-400 pl-4 text-sm text-gray-500 max-sm:border-hidden">
         Copyright @Mihir_Jain | All right reserved.{" "}
       </p>

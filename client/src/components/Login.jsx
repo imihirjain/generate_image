@@ -120,10 +120,10 @@ const Login = () => {
           />
         </div>
 
-        <p className="text-sm text-blue-600 my-4 cursor-pointer">
+        {/* <p className="text-sm text-blue-600 my-4 cursor-pointer">
           Forgot Password?
-        </p>
-        <button className="bg-blue-600 w-full text-white py-2 rounded-full">
+        </p> */}
+        <button className="bg-blue-600 w-full mt-4 text-white py-2 rounded-full">
           {state !== "Login" ? "Create Account" : "Login"}
         </button>
 

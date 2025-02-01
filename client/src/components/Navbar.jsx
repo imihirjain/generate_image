@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="flex items-center justify-between py-4">
       <Link to={"/"}>
         {/* <img src={assets.logo} className="w-28 sm:w-32 lg:w-40" alt="" /> */}
-        <h1 className="font-medium hover:text-blue-500 hover:bg-white transition-all duration-150 ease-in text-xl  rounded-lg text-white bg-blue-600 px-4 py-2 sm:text-2xl sm:font-semibold">
+        <h1 className="font-medium hover:text-white hover:bg-blue-700 transition-all duration-150 ease-in text-xl  rounded-lg text-white bg-blue-600 px-4 py-2 sm:text-2xl sm:font-semibold">
           PicScribe
         </h1>
       </Link>
