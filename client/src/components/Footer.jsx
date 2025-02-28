@@ -1,8 +1,8 @@
-import { assets } from "../assets/assets";
-import { FaFacebook } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="flex items-center justify-between gap-4 py-3 mt-20">
@@ -16,11 +16,23 @@ const Footer = () => {
 
       <div className="flex gap-3">
         {/* <img src={assets.facebook_icon} width={35} alt="" /> */}
-        <FaFacebook className="w-8 h-8" />
+
+        <Link to="https://leetcode.com/u/imihirjain/" target="blank">
+          <FaCode className="size-6" />
+        </Link>
+        <Link to="https://github.com/imihirjain" target="blank">
+          <FaGithub className="size-6" />
+        </Link>
+        <Link
+          to="http://www.linkedin.com/in/mihir-jain-583633213"
+          target="blank"
+        >
+          <FaLinkedin className="size-6" />
+        </Link>
         {/* <img src={assets.instagram_icon} width={35} alt="" /> */}
-        <FaLinkedin className="w-8 h-8" />
-        <FaGithub className="w-8 h-8" />
-        <FaInstagram className="w-8 h-8" />
+        <Link to="https://www.instagram.com/imihirjain/" target="blank">
+          <FaInstagram className="size-6" />
+        </Link>
 
         {/* <img src={assets.github} width={35} alt="" /> */}
       </div>
